@@ -43,7 +43,7 @@ define(['knockout', 'durandal/app', 'durandal/system'], function (ko, app, syste
             item.isLoaded = true;
         } else {
             // TODO: Get this to run as the scope of the View Model
-            if(this !== window) {
+            if(this != undefined && this.moreToLoad != undefined) {
                 this.moreToLoad = false;
             }
         }

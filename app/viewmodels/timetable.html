@@ -1,0 +1,29 @@
+<h1>Today's Classes</h1>
+<p>
+    See what classes we have on today. Use the search tool to view other days.
+</p>
+<div class="row">
+    <h1>Timetable</h1>
+    <p>View our timetime and find the perfect class for you.</p>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- ko foreach: today -->
+        <tr>
+            <td data-bind="text: day.name">day name</td>
+            <td data-bind="text: from.hour + ':' + from.mins">from time</td>
+            <td data-bind="text: to.hour + ':' + to.mins">to time</td>
+            <td data-bind="text: classtype.name">class name</td>
+        </tr>
+        <!-- /ko -->
+        </tbody>
+    </table>
+</div>

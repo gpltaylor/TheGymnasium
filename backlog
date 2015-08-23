@@ -1,0 +1,28 @@
+Timetable Model
+================
+Show timetable of classes run
+Show todays classes filtering out classes that have already lapses
+Allow user to search classes by day, time, class type
+Allow users to create their own timetime and submit as a recommendation.
+
+Members Stories
+===============
+Allow users to write their own story and add to the site. Will need approval first.
+Page will show like testimonials, allowing the main body to be extended to show the full story.
+
+Events Module
+=============
+List up-comming events. Advertise previous events.
+
+Before and After module
+=======================
+Gallery showing before an after shots.
+
+Video module
+============
+List videos with a short description.
+
+Booking
+=======
+Using the Timetable allow logged in users to book on the time table. This will update to show the number of people registered on the class.
+There is no limit to booking at the moment but the user must be able to click to book and then click again to remove booking.

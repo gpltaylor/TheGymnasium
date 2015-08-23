@@ -8,6 +8,7 @@ requirejs.config({
         'jquery': '../bower_components/jquery/jquery',
         'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap',
         'modernizr': '../bower_components/modernizr/modernizr',
+        'moment': '../bower_components/moment/min/moment-with-locales.min'
     },
     shim: {
     bootstrap: {

@@ -1,6 +1,10 @@
 # TheGymnasium
 
-This document explain how to develop and build this application.
+The Gymnasium is the best gym in Chorley with some of the friendliest trainers you could hope to meet, however that does not mean they will take it easy on you!
+ 
+This project is for The Gymnasium's website aimed to assist members and visitors to use the services.
+
+If you wish to help build this site then please read on. This document explain how to develop and build this site.
 
 ## Getting Started
 
