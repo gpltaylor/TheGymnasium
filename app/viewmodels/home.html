@@ -1,0 +1,9 @@
+<div>
+    <h1 data-bind="text: title">title</h1>
+    <p>
+        We believe in keeping fitness simple. Through connecting people together and creating testing exercise sessions you will see the best results of your life. Visit Chorley's number one back to basics training centre.
+    </p>
+</div>
+<div data-bind="foreach: pages">
+    <div data-bind="visible: isLoaded, compose:{model: 'viewmodels/crm', activationData:page}, attr: {id: page}" />
+</div>
