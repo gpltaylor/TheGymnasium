@@ -1,7 +1,21 @@
-<h1>Today's Classes</h1>
+<h1>Your Classes</h1>
 <p>
-    See what classes we have on today. Use the search tool to view other days.
+    See what classes we have on today. Use the search buttons to view other days.
 </p>
+
+<div class="row">
+    <div class="btn-group col-xs-12" role="group" aria-label="...">
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 2 }, click: function() { activate(2); }">Monday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 3 }, click: function() { activate(3); }">Tuesday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 4 }, click: function() { activate(4); }">Wednesday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 5 }, click: function() { activate(5); }">Thursday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 6 }, click: function() { activate(6); }">Friday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 7 }, click: function() { activate(7); }">Saturday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 1 }, click: function() { activate(1); }">Sunday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { activate(null); }">All.</button>
+    </div>
+</div>
+
 <div class="row">
     <h1>Timetable</h1>
     <p>View our timetime and find the perfect class for you.</p>
@@ -26,4 +40,52 @@
         <!-- /ko -->
         </tbody>
     </table>
+</div>
+
+<div data-bind="visible: inEditorMode">
+    <table id="timetableeditor" class="table">
+        <thead>
+            <tr>
+                <th class="col-sm-1">id</th>
+                <th class="col-sm-2">day</th>
+                <th class="col-sm-3">class</th>
+                <th class="col-sm-1">from hour</th>
+                <th class="col-sm-1">from min</th>
+                <th class="col-sm-1">from hour</th>
+                <th class="col-sm-1">from min</th>
+                <th class="col-sm-1">duration</th>
+                <th  class="col-sm-1" data-bind="click: $root.addTimetableItem">
+                    add
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: timetable -->
+            <tr>
+                <td><input data-bind="value: id" /></td>
+                <td>
+                    <select data-bind="options: $root.days,
+                           optionsText: 'name',
+                           optionsValue: 'id',
+                           value: dayId,
+                           optionsCaption: 'Choose...'"></select></td>
+                <td>
+                    <select data-bind="options: $root.classType,
+                           optionsText: 'name',
+                           optionsValue: 'id',
+                           value: classtypeId,
+                           optionsCaption: 'Choose...'"></select></td>
+                <td><input data-bind="value: from.hour" /></td>
+                <td><input data-bind="value: from.mins" /></td>
+                <td><input data-bind="value: to.hour" /></td>
+                <td><input data-bind="value: to.mins" /></td>
+                <td><input data-bind="value: duration" /></td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+    <div class="row">
+        <input type="button" class="btn btn-default" value="add" data-bind="click: $root.addTimetableItem" />
+        <input type="button" class="btn btn-default" value="refresh" data-bind="click: $root.activate" />
+    </div>
 </div>
