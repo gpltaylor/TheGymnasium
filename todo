@@ -1,6 +1,5 @@
 Update the Timetable module to use try dates from (from, to) this will allows searching to be
 a little more interactive. However this does lend to this being a little more complicated.
-
-
-
 moment("2015-08-23T06:00")
+
+Include option to filter for the Class. For example allowing a user to see when all Spin classes are not for all days or a selected day.
