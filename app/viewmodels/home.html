@@ -7,3 +7,6 @@
 <div data-bind="foreach: pages">
     <div data-bind="visible: isLoaded, compose:{model: 'viewmodels/crm', activationData:page}, attr: {id: page}" />
 </div>
+<div class="col-xs-12" data-bind="visible: moreToLoad">
+    <input type="button" class="btn btn-default" value="load more" data-bind="click:loadNext" />
+</div>

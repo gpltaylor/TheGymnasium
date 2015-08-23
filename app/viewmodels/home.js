@@ -3,6 +3,8 @@
 define(['knockout', 'durandal/app', 'durandal/system'], function (ko, app, system) {
     var title = "The Gymnasium";
     var isModelLoading = false;
+    var moreToLoad = true;
+    var that = this;
 
     var pages = [
         {page:'aboutus', isLoaded: true},
@@ -25,22 +27,34 @@ define(['knockout', 'durandal/app', 'durandal/system'], function (ko, app, syste
                 window.innerHeight) {
                     isModelLoading = true;
                     // Find the first item that's not loaded
-                    var item = pages.filter(function(page) { return page.isLoaded == false; })[0];
-                    if(item) {
-                        console.log("loading in", item);
-                        $('#' + item.page).slideDown('slow');
-                        isModelLoading = false;
-                        item.isLoaded = true;
-                    }
+                    loadNext(that);
+                    isModelLoading = false;
             }
 
         });
     };
 
+    // Load the next page into the view
+    var loadNext = function() {
+        var item = pages.filter(function(page) { return page.isLoaded == false; })[0];
+        if(item) {
+            console.log("loading in", that, item);
+            $('#' + item.page).slideDown('slow');
+            item.isLoaded = true;
+        } else {
+            // TODO: Get this to run as the scope of the View Model
+            if(this !== window) {
+                this.moreToLoad = false;
+            }
+        }
+    };
+
     return {
         activate: activate,
         title: title,
-        pages: pages
+        pages: pages,
+        moreToLoad: moreToLoad,
+        loadNext: loadNext
     };
 
 });
