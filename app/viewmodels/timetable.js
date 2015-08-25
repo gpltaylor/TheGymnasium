@@ -10,8 +10,10 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
 
     // Filter Results: Sunday is day 0, but to keep me sane I am doing 1 for Sunday!
     var todayNum = (new Date()).getDay() + 1;
+    // Filter for class types
+    var classType = null;
 
-    var classType = [
+    var classTypes = [
         {id: 1, name: 'Metafit', description: ''},
         {id: 2, name: 'Weekly Workout', description: ''},
         {id: 3, name: 'Fat Burner', description: ''},
@@ -98,6 +100,13 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
         // Get today items
         var query = that.timetable.filter(function(tt) { return tt.dayId == that.todayNum || that.todayNum === null; });
 
+        // Filter based on the class type
+        if(that.classType != undefined) {
+            query = query.filter(function (tt) {
+                return tt.classtypeId == that.classType.id
+            });
+        }
+
         // Link up data
         query = query
             .map(function(item) {
@@ -106,9 +115,10 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
                             .filter(function(day) {
                                 return item.dayId == day.id;
                             })[0],
-                    classtype: that.classType.filter(function(ct) {
-                        return item.classtypeId == ct.id;
-                    })[0],
+                    classtype: that.classTypes
+                            .filter(function(ct) {
+                                return item.classtypeId == ct.id;
+                            })[0],
                     from: item.from,
                     to: item.to
                 };
@@ -126,11 +136,12 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
         activate: activate,
         timetable: timetable,
         days: days,
-        classType: classType,
+        classTypes: classTypes,
         today: today,
         addTimetableItem: addTimetableItem,
         inEditorMode: inEditorMode,
-        todayNum: todayNum
+        todayNum: todayNum,
+        classType: classType
     };
 
 });

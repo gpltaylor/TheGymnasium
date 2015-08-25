@@ -15,6 +15,11 @@
         <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { activate(null); }">All.</button>
     </div>
 </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 form-group">
+        <select class="form-control" data-bind="options: classTypes, optionsText: 'name', value: classType, optionsCaption: 'Choose...'"></select>
+    </div>
+</div>
 
 <div class="row">
     <h1>Timetable</h1>
@@ -70,7 +75,7 @@
                            value: dayId,
                            optionsCaption: 'Choose...'"></select></td>
                 <td>
-                    <select data-bind="options: $root.classType,
+                    <select data-bind="options: $root.classTypes,
                            optionsText: 'name',
                            optionsValue: 'id',
                            value: classtypeId,
