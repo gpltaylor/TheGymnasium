@@ -5,19 +5,19 @@
 
 <div class="row">
     <div class="btn-group col-xs-12" role="group" aria-label="...">
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 2 }, click: function() { activate(2); }">Monday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 3 }, click: function() { activate(3); }">Tuesday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 4 }, click: function() { activate(4); }">Wednesday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 5 }, click: function() { activate(5); }">Thursday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 6 }, click: function() { activate(6); }">Friday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 7 }, click: function() { activate(7); }">Saturday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 1 }, click: function() { activate(1); }">Sunday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { activate(null); }">All.</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 2 }, click: function() { todayNum = 2; search(); }">Monday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 3 }, click: function() { todayNum = 3; search(); }">Tuesday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 4 }, click: function() { todayNum = 4; search(); }">Wednesday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 5 }, click: function() { todayNum = 5; search(); }">Thursday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 6 }, click: function() { todayNum = 6; search(); }">Friday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 7 }, click: function() { todayNum = 7; search(); }">Saturday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 1 }, click: function() { todayNum = 1; search(); }">Sunday</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { todayNum = null; search(null); }">All.</button>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-8 form-group">
-        <select class="form-control" data-bind="options: classTypes, optionsText: 'name', value: classType, optionsCaption: 'Choose...'"></select>
+        <select class="form-control" data-bind="options: classTypes, optionsText: 'name', value: classType, optionsCaption: 'Choose...', event: {change: $root.search}"></select>
     </div>
 </div>
 
@@ -91,6 +91,6 @@
     </table>
     <div class="row">
         <input type="button" class="btn btn-default" value="add" data-bind="click: $root.addTimetableItem" />
-        <input type="button" class="btn btn-default" value="refresh" data-bind="click: $root.activate" />
+        <input type="button" class="btn btn-default" value="refresh" data-bind="click: $root.search" />
     </div>
 </div>

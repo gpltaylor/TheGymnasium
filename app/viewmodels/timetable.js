@@ -1,6 +1,6 @@
 'use strict';
 
-define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, app, system, moment) {
+define(['knockout', 'durandal/app', 'durandal/system','moment','plugins/observable'], function (ko, app, system, moment, observable) {
     var title = "Timetable";
 
     // Does the UI show the options to edit the TimeTable list?
@@ -91,11 +91,12 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
         {"id":49,"dayId":1,"classtypeId":12,"from":{"hour":"12","mins":"30"},"to":{"hour":"14","mins":"0"},"duration":"150"}
     ];
 
-    var activate = function(today) {
+    var activate = function() {
+        this.search();
+    };
+
+    var search = function() {
         var that = this;
-        if(today !== undefined) {
-            this.todayNum = today;
-        }
 
         // Get today items
         var query = that.timetable.filter(function(tt) { return tt.dayId == that.todayNum || that.todayNum === null; });
@@ -134,6 +135,7 @@ define(['knockout', 'durandal/app', 'durandal/system','moment'], function (ko, a
 
     return {
         activate: activate,
+        search: search,
         timetable: timetable,
         days: days,
         classTypes: classTypes,
