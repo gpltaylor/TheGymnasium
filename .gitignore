@@ -19,3 +19,4 @@ dist/
 publish/
 .build/bower_components 
 .temp 
+.idea 
