@@ -17,6 +17,7 @@ build/
 bld/
 dist/
 publish/
-.build/bower_components 
-.temp 
-.idea 
+.build/bower_components
+.temp
+.idea/
+
