@@ -8,10 +8,10 @@ define(['knockout', 'durandal/app', 'durandal/system'], function (ko, app, syste
 
     var pages = [
         {page:'aboutus', isLoaded: true},
-        {page:'membership', isLoaded: false},
         {page:'whyjoin', isLoaded: false},
-        {page:'personaltraining', isLoaded: false},
+        {page:'membership', isLoaded: false},
         {page:'meet-our-pts', isLoaded: false},
+        {page:'personaltraining', isLoaded: false},
     ];
 
     var update = function() {

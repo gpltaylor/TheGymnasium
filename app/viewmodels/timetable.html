@@ -12,12 +12,12 @@
         <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 6 }, click: function() { todayNum = 6; search(); }">Friday</button>
         <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 7 }, click: function() { todayNum = 7; search(); }">Saturday</button>
         <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == 1 }, click: function() { todayNum = 1; search(); }">Sunday</button>
-        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { todayNum = null; search(null); }">All.</button>
+        <button type="button" class="btn btn-default col-xs-12 col-sm-1" data-bind="css: { active: todayNum == null }, click: function() { todayNum = null; search(null); }">All</button>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-8 form-group">
-        <select class="form-control" data-bind="options: classTypes, optionsText: 'name', value: classType, optionsCaption: 'Choose...', event: {change: $root.search}"></select>
+        <select class="form-control" data-bind="options: classTypes, optionsText: 'name', value: classType, optionsCaption: 'All', event: {change: $root.search}"></select>
     </div>
 </div>
 

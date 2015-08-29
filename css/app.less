@@ -30,8 +30,13 @@ body {
     #main {
         padding-bottom: 40px;
 
-        h1, h2, h3, h4 {
+        h1 {
             color: @headingcolor;
+        }
+
+        h2, h3, h4 {
+            font-size: 1.7em;
+            color: @headingsumcolor;
         }
 
     }
@@ -52,5 +57,58 @@ body {
         left: 50%;
         margin-top: -0.5em;
         margin-left: -0.5em;
+    }
+}
+
+.TheGymnasiumV1 {
+    background-image: url('../assets/bg/bg-wood.jpg');
+
+    .container {
+        &:nth-child(3) {
+            background-color: white;
+            border: 1px solid black;
+
+            img {
+                border: solid 1px black;
+            }
+        }
+    }
+
+    .navbar-inverse {
+        background-image: url('../assets/bg.png');
+    }
+
+    .sidebar {
+        ul {
+            display: inherit;
+            width:160px;
+            overflow: hidden;
+
+            &.sidebar-nav {
+                position: fixed;
+
+                &~div {
+                    overflow: hidden;
+                }
+
+                li {
+                    &.active {
+                        background-image: url('../assets/bg.png');
+
+                        a, a:hover {
+                            color: white;
+
+                            &:focus {
+                                color: @red;
+                            }
+                        }
+                    }
+
+                    a {
+                        color: @darkred;
+                    }
+                }
+            }
+        }
     }
 }
